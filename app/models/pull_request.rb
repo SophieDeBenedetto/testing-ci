@@ -50,13 +50,13 @@ class PullRequest
     case result
     when "failure"  
       self.status = "failure"
-      self.description[:description] = "click the 'details' link for more info."
+      self.description[:description] = "failed all validations, click the 'details' link for more info."
     when "success"
       self.status = "success"
       self.description[:description] = "passed all validations!"
     else
       self.status = "error"
-      self.description[:description] = "click the 'details' link for more info."
+      self.description[:description] = "failing some validations, click the 'details' link for more info."
     end
   end
 end
