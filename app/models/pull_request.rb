@@ -11,7 +11,7 @@ class PullRequest
     @sha = payload['head']['sha']
     @root = Dir.pwd
     @status = "pending"
-    @description = {description: "pending", context: "message"}
+    @description = {description: "pending"}
   end
 
   def validation_result(result=nil)
