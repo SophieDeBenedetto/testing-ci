@@ -14,6 +14,38 @@ class PullRequest
     @description = {description: "pending"}
   end
 
+  def lint
+    @linter = LearnLinter.new("#{self.root}/app/cloned_repo/#{self.user}", "quiet")
+    @linter.lint_directory
+  end
+
+   
+  def collect_results
+    lint.collect do |file, attributes|
+      attributes.collect do |attr, value|
+        value
+      end
+    end.flatten!
+  end
+
+  def set_status
+    results = collect_results
+    if results.all? {|result| result}
+      self.validation_result("success")
+    elsif results.all? {|result| !result}
+      self.validation_result("failure")
+    else
+      self.validation_result
+    end
+  end
+
+  def set_messages
+    messages = @linter.result_message
+    messages.collect do |message|
+      message.delete_if {|k, v| k == :color}
+    end
+  end
+
   def validation_result(result=nil)
     case result
     when "failure"  

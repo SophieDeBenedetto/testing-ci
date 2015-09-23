@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationController, :type => :controller do
+RSpec.describe PullRequestsController, :type => :controller do
   
   describe "POST event_handler" do
     describe "with valid params" do
