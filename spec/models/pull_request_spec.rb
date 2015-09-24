@@ -5,7 +5,7 @@ RSpec.describe PullRequest, :type => :model do
 
   describe "#set_status" do
     before do 
-      stubbed_params = configure_pr_content
+      stubbed_params = configure_pr_open
       @pull_request = PullRequest.new(stubbed_params)
       add_test_repo(@pull_request)
     end

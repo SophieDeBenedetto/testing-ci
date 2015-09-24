@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Results, :type => :model do
   
-  let(:result) {Results.create(messages: [{message: "hey there"}], sha: "XXXXasd;lkcvasdfeoiawejghsdatestingwhatever", user: "Sophie" )}
+  let(:result) {Results.create(messages: [{message: "hey there"}], pr_id: "45679127", user: "Sophie" )}
 
   describe "attributes" do
-    it "has an sha identifier" do
-      expect(result.sha).to eq("XXXXasd;lkcvasdfeoiawejghsdatestingwhatever")
+    it "has an pr_id identifier" do
+      expect(result.pr_id).to eq("45679127")
     end
 
     it "has a messages attributes that points to an array of message hashes" do 

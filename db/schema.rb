@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150923211700) do
 
   create_table "results", force: :cascade do |t|
     t.text   "messages", default: "{}"
-    t.string "sha"
+    t.string "pr_id"
     t.string "user"
   end
 

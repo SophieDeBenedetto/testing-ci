@@ -9,7 +9,7 @@ class PullRequestsController < ApplicationController
     process_pull_request
     @pull_request.set_status
     messages = @pull_request.set_messages
-    @results = Results.find_or_create_by(messages: messages, sha: @pull_request.sha, user: @pull_request.user)
+    @results = Results.find_or_create_by(messages: messages, pr_id: @pull_request.pr_id, user: @pull_request.user)
     process_pull_request(@result)
     
     redirect_to result_path(@results)
@@ -19,7 +19,14 @@ class PullRequestsController < ApplicationController
   private
 
     def determine_pr_status
-      binding.pry
+      if params["pull_request"]["state"] == "closed"
+        pr_id = params["pull_request"]["id"]
+        result = Results.find_by(pr_id: pr_id)
+        result.destroy
+        redirect_to root_path
+      else
+        configure_pr
+      end
     end
 
     def configure_pr
