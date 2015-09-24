@@ -1,7 +1,7 @@
 class PullRequestsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
-  before_action :configure_pr, only: :event_handler
+  before_action :determine_pr_status, only: :event_handler
   after_action :remove_repo, only: :event_handler
 
 
@@ -19,6 +19,7 @@ class PullRequestsController < ApplicationController
   private
 
     def determine_pr_status
+      binding.pry
     end
 
     def configure_pr
