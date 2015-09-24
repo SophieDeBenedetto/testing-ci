@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   post 'event_handler' => 'pull_requests#event_handler'
-  resources :result
+  resources :results
 
   root 'application#home'
 

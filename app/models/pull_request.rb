@@ -12,7 +12,7 @@ class PullRequest
     @sha = payload['head']['sha']
     @root = Dir.pwd
     @status = "pending"
-    @description = {description: "pending"}
+    @description = "pending"
   end
 
 
@@ -28,10 +28,11 @@ class PullRequest
   end
 
   def set_messages
-    messages = @linter.result_message
-    messages.collect do |message|
-      message.delete_if {|k, v| k == :color}
-    end
+    @linter.result_message
+    # messages = @linter.result_message
+    # messages.collect do |message|
+    #   message.delete_if {|k, v| k == :color}
+    # end
   end
 
   
@@ -53,13 +54,13 @@ class PullRequest
     case result
     when "failure"  
       self.status = "failure"
-      self.description[:description] = "failed all validations, click the 'details' link for more info."
+      self.description = "failed all validations, click the 'details' link for more info."
     when "success"
       self.status = "success"
-      self.description[:description] = "passed all validations!"
+      self.description = "passed all validations!"
     else
       self.status = "error"
-      self.description[:description] = "failing some validations, click the 'details' link for more info."
+      self.description = "failing some validations, click the 'details' link for more info."
     end
   end
 end

@@ -13,7 +13,6 @@ class PullRequestsController < ApplicationController
     process_pull_request(@result)
     
     redirect_to result_path(@result)
-
   end
 
   private
@@ -55,9 +54,9 @@ class PullRequestsController < ApplicationController
     def process_pull_request(result=nil)
       puts "Processing pull request..."
       if result
-        info = {description: @pull_request.description, target_url: "http://0c143c01.ngrok.io/results/#{result.id}"}
+        info = {context: "Learn Linter says", description: @pull_request.description, target_url: "http://ea4e087d.ngrok.io/results/#{result.id}"}
       else
-        info = {description: @pull_request.description}
+        info = {context: "Learn Linter says", description: @pull_request.description}
       end
       @client.create_status(@pull_request.repo_name, @pull_request.sha, @pull_request.status, info)
     end

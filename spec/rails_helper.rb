@@ -27,3 +27,7 @@ def add_test_repo(pull_request)
   system "git clone #{pull_request.full_repo} #{pull_request.root}/app/cloned_repo/#{pull_request.user}"
   system "git checkout #{pull_request.branch_name}"
 end
+
+def remove_test_repo(pull_request)
+  system "rm -rf #{pull_request.root}/app/cloned_repo/#{pull_request.user}"
+end

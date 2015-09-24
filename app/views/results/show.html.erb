@@ -1,5 +1,19 @@
-Hi, <%=@user%>
+<h4>This pull request was created by <%=@user%></h4>
+</br>
 
-Here is your validation report:
+<p>Here is the validation report:</p>
 
-<%=@error_messages%>
+</ul>
+    <% @learn_results.each do |result| %>
+      <li class="<%=result[:color]%>"><%=result[:message]%></li>
+    <%end%>
+    <% @readme_results.each do |result| %>
+      <li class="<%=result[:color]%>"><%=result[:message]%></li>
+    <%end%>
+    <% @license_results.each do |result| %>
+      <li class="<%=result[:color]%>"><%=result[:message]%></li>
+    <%end%>
+    <% @contributing_results.each do |result| %>
+      <li class="<%=result[:color]%>"><%=result[:message]%></li>
+    <%end%>
+</ul>
