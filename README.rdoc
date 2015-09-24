@@ -1,28 +1,9 @@
-== README
+## to do:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- fix status message--why is "default" still showing up? why is "context" all wonky?
+- add attrs to Result class/table for name, pr identifer, change controller code accordingly
+- presenter object for error_messages object on result show page
+- general styling for that page
+- *After merge hook to delete result object. Maybe we should delete repo only after merge??
+- *If someone adds commits to a branch for which there is an open PR, will webhook send payload 
+   or we need to add another hook?
