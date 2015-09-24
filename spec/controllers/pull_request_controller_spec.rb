@@ -21,7 +21,7 @@ RSpec.describe PullRequestsController, :type => :controller do
 
       post :event_handler, {:pull_request => stubbed_params}, {}
 
-      expect(Results.where("pr_id = '?'", stubbed_params['id'])).to eq([])
+      expect(Result.where("pr_id = '?'", stubbed_params['id'])).to eq([])
     end
 
   end
