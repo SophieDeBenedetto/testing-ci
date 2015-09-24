@@ -1,9 +1,10 @@
 class PullRequest
 
-  attr_accessor :branch_name, :repo_name, :user, :full_repo, :repo_name, :root, :sha, :status, :description
+  attr_accessor :pr_id, :branch_name, :repo_name, :user, :full_repo, :repo_name, :root, :sha, :status, :description
 
   def initialize(params)
     payload = params["pull_request"]
+    @pr_id = payload["id"]
     @branch_name = payload["head"]["ref"]
     @user = payload["user"]["login"]
     @repo_name = payload["head"]["repo"]["full_name"]

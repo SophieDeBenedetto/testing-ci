@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   post 'event_handler' => 'pull_requests#event_handler'
   resources :results
 
+  root 'application#home'
+
 end
