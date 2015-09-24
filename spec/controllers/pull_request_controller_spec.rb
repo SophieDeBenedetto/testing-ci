@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PullRequestsController, :type => :controller do
   
-  describe "POST event_handler" do
+  describe "POST event_handler with PR status open" do
     describe "with valid params" do
       it "sends a payload" do
         stubbed_params = configure_pr_content["pull_request"]
@@ -11,6 +11,12 @@ RSpec.describe PullRequestsController, :type => :controller do
         
         expect(response.status).to eq(302)
       end
+    end
+  end
+
+  describe "POST event_handler with PR status closed" do
+    describe "" do
+
     end
   end
 end

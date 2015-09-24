@@ -18,6 +18,9 @@ class PullRequestsController < ApplicationController
 
   private
 
+    def determine_pr_status
+    end
+
     def configure_pr
       configure_client
       set_pr
