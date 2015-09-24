@@ -1,8 +1,8 @@
 class ResultsController < ApplicationController
 
   def show
-    results = Results.find(params[:id])
-    @error_messages = results.messages
-    @user = results.user
+    result = Result.find(params[:id])
+    @error_messages = result.messages
+    @user = result.user
   end
 end

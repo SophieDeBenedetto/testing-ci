@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Results, :type => :model do
+RSpec.describe Result, :type => :model do
   
-  let(:result) {Results.create(messages: [{message: "hey there"}], pr_id: "45679127", user: "Sophie" )}
+  let(:result) {Result.create(messages: [{message: "hey there"}], pr_id: "45679127", user: "Sophie" )}
 
   describe "attributes" do
     it "has an pr_id identifier" do

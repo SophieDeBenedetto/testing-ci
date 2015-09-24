@@ -1,4 +1,4 @@
-class Results < ActiveRecord::Base
+class Result < ActiveRecord::Base
 
   serialize :messages
 
