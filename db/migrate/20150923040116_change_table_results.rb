@@ -1,4 +1,4 @@
-class ChangeTableResults < ActiveRecord::Migration
+rclass ChangeTableResults < ActiveRecord::Migration
   def change
     change_column :results, :messages, :text
   end

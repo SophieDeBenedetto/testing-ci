@@ -9,11 +9,10 @@ class PullRequestsController < ApplicationController
     process_pull_request
     @pull_request.set_status
     messages = @pull_request.set_messages
-    # Results.find_or_create_by pr-identifier, upate/set messages
-    @result = Results.create(messages: messages)
+    @results = Results.find_or_create_by(messages: messages, sha: @pull_request.sha, user: @pull_request.user)
     process_pull_request(@result)
     
-    redirect_to result_path(@result)
+    redirect_to result_path(@results)
 
   end
 
